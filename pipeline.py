@@ -18,7 +18,7 @@ for element in args.f:
 subprocess.call(["git", "commit", '-m', args.m])
 process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
 git_head_hash = process.communicate()[0].strip()
-print(git_head_hash)
+print("SHA -" + git_head_hash)
 subprocess.call(["git", "push"])
 
 subprocess.call(['docker', 'build', '.', '-t', username+reponame+':'+git_head_hash])
