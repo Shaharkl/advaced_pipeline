@@ -16,10 +16,11 @@ args = parser.parse_args()
 for element in args.f:
     subprocess.call(['git', 'add', element])
 subprocess.call(["git", "commit", '-m', args.m])
-version = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).strip()
+process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
+git_head_hash = process.communicate()[0].strip()
 print(version)
 subprocess.call(["git", "push"])
 
-subprocess.call(['docker', 'build', '.', '-t', username+reponame+':'+version])
-subprocess.call(['docker', 'push', username+reponame+':'+version])
+subprocess.call(['docker', 'build', '.', '-t', username+reponame+':'+git_head_hash])
+subprocess.call(['docker', 'push', username+reponame+':'+git_head_hash])
 
