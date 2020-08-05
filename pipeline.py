@@ -19,5 +19,5 @@ for element in args.f:
 subprocess.call(["git", "commit", '-m', args.m])
 subprocess.call(["git", "push"])
 
-client.images.build(path = "/home/shahar/flaskapp-advaced-pipeline",  fileobj='Dockerfile')
+subprocess.call(['docker', 'build .', '-t', username+reponame])
 
