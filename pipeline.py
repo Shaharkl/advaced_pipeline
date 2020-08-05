@@ -20,4 +20,5 @@ subprocess.call(["git", "commit", '-m', args.m])
 subprocess.call(["git", "push"])
 
 subprocess.call(['docker', 'build', '.', '-t', username+reponame+':'+version])
+subprocess.call(['docker', 'push', username+reponame+':'+version])
 
