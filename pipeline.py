@@ -19,5 +19,5 @@ for element in args.f:
 subprocess.call(["git", "commit", '-m', args.m])
 subprocess.call(["git", "push"])
 
-client.images.build(path = "./", tag= reponame + ":" + version)
+client.build(path = "./", tag= reponame + ":" + version)
 
