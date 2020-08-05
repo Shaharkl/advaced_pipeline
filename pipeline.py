@@ -2,7 +2,7 @@ import argparse
 import subprocess
 import docker
 
-username = "Shaharkl"
+username = "Shaharkl/"
 reponame = "advance_pipeline"
 version = "v0.0.0"
 client = docker.from_env()
@@ -19,5 +19,5 @@ for element in args.f:
 subprocess.call(["git", "commit", '-m', args.m])
 subprocess.call(["git", "push"])
 
-client.build(path = "./", tag= reponame + ":" + version)
+client.build(path = "./", tag= username + reponame + ":" + version)
 
