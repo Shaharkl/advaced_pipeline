@@ -19,5 +19,5 @@ for element in args.f:
 subprocess.call(["git", "commit", '-m', args.m])
 subprocess.call(["git", "push"])
 
-subprocess.call(['docker', 'build .', '-t', username+reponame])
+subprocess.call(['docker', 'build', '.', '-t', username+reponame])
 
