@@ -2,7 +2,7 @@ import argparse
 import subprocess
 import docker
 
-username = "Shaharkl/"
+username = "shaharkl/"
 reponame = "advance_pipeline"
 version = "v0.0.0"
 client = docker.from_env()
